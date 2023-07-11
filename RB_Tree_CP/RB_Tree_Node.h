@@ -1,19 +1,22 @@
 //
-// Created by Shawn Zhao on 2023/7/10.
+// Created by Shawn Zhao on 2023/7/11.
 //
 
 #ifndef RB_TREE_CP_RB_TREE_NODE_H
 #define RB_TREE_CP_RB_TREE_NODE_H
-
+typedef enum
+{
+    RED = 0,
+    BLACK
+} Color;
 template<class T>
-class RB_Tree_Node {
+class RBTNode
+{
 public:
-    RB_Tree_Node(T data_in);
-    ~RB_Tree_Node(void);
-    RB_Tree_Node* Left_child;
-    RB_Tree_Node* Right_child;
-    RB_Tree_Node* Father_Node;
-    T data;
-    int color_tag = 0;
+    Color color;     //颜色
+    T key;        //关键字
+    RBTNode *left;   //左孩子
+    RBTNode *right;  //右孩子
+    RBTNode *parent; //父结点
 };
 #endif //RB_TREE_CP_RB_TREE_NODE_H

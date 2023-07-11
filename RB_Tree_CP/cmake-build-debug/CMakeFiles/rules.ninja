@@ -42,7 +42,7 @@ rule CXX_EXECUTABLE_LINKER__RB_Tree_CP_Debug
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/shawnzhao/Code/RB_Tree_CP -B/Users/shawnzhao/Code/RB_Tree_CP/cmake-build-debug
+  command = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/shawnzhao/Code/RB_Learning/RB_Tree_CP -B/Users/shawnzhao/Code/RB_Learning/RB_Tree_CP/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 

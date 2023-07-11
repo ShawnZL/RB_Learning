@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "RB_Tree_CP::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-RB_Tree_CP-Debug-e95a025c62e779b2d7b6.json",
+					"jsonFile" : "target-RB_Tree_CP-Debug-383e7fc99048e06490eb.json",
 					"name" : "RB_Tree_CP",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/shawnzhao/Code/RB_Tree_CP/cmake-build-debug",
-		"source" : "/Users/shawnzhao/Code/RB_Tree_CP"
+		"build" : "/Users/shawnzhao/Code/RB_Learning/RB_Tree_CP/cmake-build-debug",
+		"source" : "/Users/shawnzhao/Code/RB_Learning/RB_Tree_CP"
 	},
 	"version" : 
 	{

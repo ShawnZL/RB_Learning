@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/shawnzhao/Code/Temp/RB/cmake-build-debug",
-		"source" : "/Users/shawnzhao/Code/Temp/RB"
+		"build" : "/Users/shawnzhao/Code/RB_Learning/RB/cmake-build-debug",
+		"source" : "/Users/shawnzhao/Code/RB_Learning/RB"
 	},
 	"version" : 
 	{

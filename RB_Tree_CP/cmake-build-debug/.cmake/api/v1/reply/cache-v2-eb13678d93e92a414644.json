@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/shawnzhao/Code/RB_Tree_CP/cmake-build-debug"
+			"value" : "/Users/shawnzhao/Code/RB_Learning/RB_Tree_CP/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -515,7 +515,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/shawnzhao/Code/RB_Tree_CP"
+			"value" : "/Users/shawnzhao/Code/RB_Learning/RB_Tree_CP"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",
@@ -1087,7 +1087,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/shawnzhao/Code/RB_Tree_CP/cmake-build-debug"
+			"value" : "/Users/shawnzhao/Code/RB_Learning/RB_Tree_CP/cmake-build-debug"
 		},
 		{
 			"name" : "RB_Tree_CP_IS_TOP_LEVEL",
@@ -1111,7 +1111,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/shawnzhao/Code/RB_Tree_CP"
+			"value" : "/Users/shawnzhao/Code/RB_Learning/RB_Tree_CP"
 		}
 	],
 	"kind" : "cache",
