@@ -2,10 +2,11 @@
 #include <cassert>
 #include "RB_Tree.h"
 #include "RB_Tree.cpp"
+//#include "bench.cpp"
 using namespace std;
 
 
-
+/*
 int main(int argc, char *argv[])
 {
     RBTree<int> rb;
@@ -24,5 +25,14 @@ int main(int argc, char *argv[])
     }
     rb.Remove(21);
     return 0;
-}
+
+*/
+    /*
+     * benchmark 使用
+    //#include "RB_Tree.h"
+    //#include "RB_Tree.cpp"
+    benchmark::Initialize(&argc, argv);
+    benchmark::RunSpecifiedBenchmarks();
+    */
+//}
 

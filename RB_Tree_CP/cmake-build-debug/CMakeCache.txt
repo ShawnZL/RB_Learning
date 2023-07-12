@@ -213,6 +213,9 @@ RB_Tree_CP_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 RB_Tree_CP_SOURCE_DIR:STATIC=/Users/shawnzhao/Code/RB_Learning/RB_Tree_CP
 
+//The directory containing a CMake configuration file for benchmark.
+benchmark_DIR:PATH=/opt/homebrew/lib/cmake/benchmark
+
 
 ########################
 # INTERNAL cache entries
@@ -286,6 +289,10 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
+//Have include pthread.h
+CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/Users/shawnzhao/Code/RB_Learning/RB_Tree_CP
@@ -349,4 +356,6 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 

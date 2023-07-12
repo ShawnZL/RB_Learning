@@ -1,43 +1,3 @@
-# 红黑树实现
-
-`RB`为其他人实现代码
-
-`RB_Tree_CP` 在参考代码[1](https://blog.csdn.net/code_peak/article/details/120643910)，[2](https://github.com/Neo-ZK/RB_Tree)基础上实现，其中参考代码2中没有实现方法`Fix_Tree_Delete()` 也就是删除后的调整代码。红黑树删除后的调整是根据[wiki](https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91)中定义实现的，但是删除的场景4没有体现！！！
-
-代码中目前尚未理解`Transplant()`方法。
-
-# benchmark
-
-首先是构建benchmark库，之后使用
-
-```cmake
-find_package(benchmark REQUIRED)
-```
-
-首先是确保可以搜索到库，然后，可以使用 `target_link_libraries` 命令将 Google Benchmark 库链接到您的目标可执行文件中：
-
-```cmake
-target_link_libraries(your_target benchmark::benchmark)
-```
-
-完整的cmke文件为
-
-```cmake
-cmake_minimum_required(VERSION 3.21)
-project(RB_Tree_CP)
-
-find_package(benchmark REQUIRED)
-
-set(CMAKE_CXX_STANDARD 23)
-
-add_executable(RB_Tree_CP main.cpp RB_Tree_Node.h RB_Tree.h RB_Tree.cpp bench.cpp)
-
-target_link_libraries(RB_Tree_CP benchmark::benchmark)
-```
-
-然后在`bench.cpp`中定义文件并且执行运行
-
-```c++
 //
 // Created by Shawn Zhao on 2023/7/12.
 //
@@ -155,9 +115,12 @@ static void BM_Insert(benchmark::State& state)
 BENCHMARK(BM_Insert)
         ->RangeMultiplier(10)
         ->Ranges({{1, 1000}, {10000, 10000}})
-        ->ThreadRange(1, 4)
+        ->ThreadRange(1, 5)
+        // ->Repetitions(30) // 确定重复率
         ->UseRealTime();
-// BENCHMARK_MAIN();
+BENCHMARK_MAIN(); // 使用就要注释掉主函数
+
+
 /*
 这段代码是使用 Google Benchmark 库为名为 `BM_Insert` 的基准测试函数设置参数和选项的部分。
 
@@ -173,14 +136,6 @@ BENCHMARK(BM_Insert)
 
 5. `->UseRealTime()`: 使用 `UseRealTime` 函数配置基准测试使用真实时间进行测量。这意味着基准测试将使用实际经过的时间作为度量指标，而不是 CPU 时钟周期。
 
-BENCHMARK_MAIN() 是 Google Benchmark 库提供的一个宏，用于生成一个包含 main 函数的入口点，以便运行注册的基准测试。
-
-在调用 BENCHMARK_MAIN() 后，Google Benchmark 库会生成一个默认的 main 函数，用于初始化基准测试并运行注册的基准测试函数。
-
-通常的用法是在源文件的最后调用 BENCHMARK_MAIN()，以便生成可执行文件，并在运行时执行注册的基准测试。
-
-这样，您就可以编译并运行包含基准测试的源文件，Google Benchmark 库会自动执行注册的基准测试，并生成性能报告。
+通过设置这些参数和选项，您可以自定义基准测试的范围、线程数和测量方式，以便进行详细的性能分析和比较。
 */
-```
 
-使用`BENCHMARK_MAIN();`就需要将main函数的入口函数注释掉

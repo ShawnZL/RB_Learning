@@ -38,6 +38,7 @@ protected:
     void destroy(RBTNode<Type> *&root);
     //中序遍历打印结点详细的结点颜色
     void InOrderPrint(RBTNode<Type> *node);
+//    bool Empty(RBTNode<Type> *root);
 private:
     RBTNode<Type> *root; //根指针
     RBTNode<Type> *Nil;  //外部结点，表示空结点，黑色的
