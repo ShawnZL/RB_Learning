@@ -8,6 +8,8 @@
 
 # benchmark
 
+benchmark使用是参考了[链接🔗](https://github.com/dotnwat/persistent-rbtree)，作者在使用红黑树编写后，使用benchmark做测试，
+
 首先是构建benchmark库，之后使用
 
 ```cmake
@@ -184,3 +186,34 @@ BENCHMARK_MAIN() 是 Google Benchmark 库提供的一个宏，用于生成一个
 ```
 
 使用`BENCHMARK_MAIN();`就需要将main函数的入口函数注释掉
+
+## 运行结果
+
+```shell
+Run on (8 X 24.1209 MHz CPU s)
+CPU Caches:
+  L1 Data 64 KiB
+  L1 Instruction 128 KiB
+  L2 Unified 4096 KiB (x8)
+Load Average: 2.20, 2.77, 2.66
+---------------------------------------------------------------------------------------------------
+Benchmark                                         Time             CPU   Iterations UserCounters...
+---------------------------------------------------------------------------------------------------
+BM_Insert/1/10000/real_time/threads:1          10.4 ns         10.3 ns     66335777 items_per_second=0/s
+BM_Insert/1/10000/real_time/threads:2          5.24 ns         10.4 ns    133930814 items_per_second=0/s
+BM_Insert/1/10000/real_time/threads:4          2.66 ns         10.5 ns    267300260 items_per_second=0/s
+BM_Insert/1/10000/real_time/threads:5          2.12 ns         10.5 ns    333544525 items_per_second=0/s
+BM_Insert/10/10000/real_time/threads:1         10.1 ns         10.1 ns     69087327 items_per_second=0/s
+BM_Insert/10/10000/real_time/threads:2         5.07 ns         10.1 ns    138319932 items_per_second=0/s
+BM_Insert/10/10000/real_time/threads:4         2.59 ns         10.3 ns    271794524 items_per_second=0/s
+BM_Insert/10/10000/real_time/threads:5         2.09 ns         10.4 ns    336127540 items_per_second=0/s
+BM_Insert/100/10000/real_time/threads:1        9.97 ns         9.96 ns     69384043 items_per_second=0/s
+BM_Insert/100/10000/real_time/threads:2        5.07 ns         10.1 ns    137012528 items_per_second=0/s
+BM_Insert/100/10000/real_time/threads:4        2.58 ns         10.3 ns    271672912 items_per_second=0/s
+BM_Insert/100/10000/real_time/threads:5        2.07 ns         10.4 ns    338521550 items_per_second=0/s
+BM_Insert/1000/10000/real_time/threads:1      10.00 ns         9.99 ns     70580970 items_per_second=0/s
+BM_Insert/1000/10000/real_time/threads:2       5.16 ns         10.2 ns    137607436 items_per_second=0/s
+BM_Insert/1000/10000/real_time/threads:4       2.59 ns         10.3 ns    261559384 items_per_second=0/s
+BM_Insert/1000/10000/real_time/threads:5       2.09 ns         10.4 ns    335760080 items_per_second=0/s
+```
+
