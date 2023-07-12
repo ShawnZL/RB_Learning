@@ -78,6 +78,12 @@ build CMakeFiles/RB_Tree_CP.dir/main.cpp.o: CXX_COMPILER__RB_Tree_CP_Debug /User
   OBJECT_DIR = CMakeFiles/RB_Tree_CP.dir
   OBJECT_FILE_DIR = CMakeFiles/RB_Tree_CP.dir
 
+build CMakeFiles/RB_Tree_CP.dir/RB_Tree.cpp.o: CXX_COMPILER__RB_Tree_CP_Debug /Users/shawnzhao/Code/RB_Learning/RB_Tree_CP/RB_Tree.cpp || cmake_object_order_depends_target_RB_Tree_CP
+  DEP_FILE = CMakeFiles/RB_Tree_CP.dir/RB_Tree.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -std=gnu++2a
+  OBJECT_DIR = CMakeFiles/RB_Tree_CP.dir
+  OBJECT_FILE_DIR = CMakeFiles/RB_Tree_CP.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target RB_Tree_CP
@@ -86,7 +92,7 @@ build CMakeFiles/RB_Tree_CP.dir/main.cpp.o: CXX_COMPILER__RB_Tree_CP_Debug /User
 #############################################
 # Link the executable RB_Tree_CP
 
-build RB_Tree_CP: CXX_EXECUTABLE_LINKER__RB_Tree_CP_Debug CMakeFiles/RB_Tree_CP.dir/main.cpp.o
+build RB_Tree_CP: CXX_EXECUTABLE_LINKER__RB_Tree_CP_Debug CMakeFiles/RB_Tree_CP.dir/main.cpp.o CMakeFiles/RB_Tree_CP.dir/RB_Tree.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk
   OBJECT_DIR = CMakeFiles/RB_Tree_CP.dir
   POST_BUILD = :

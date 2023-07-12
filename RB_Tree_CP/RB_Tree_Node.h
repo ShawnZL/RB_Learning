@@ -9,12 +9,12 @@ typedef enum
     RED = 0,
     BLACK
 } Color;
-template<class T>
+template<class Type>
 class RBTNode
 {
 public:
     Color color;     //颜色
-    T key;        //关键字
+    Type key;        //关键字
     RBTNode *left;   //左孩子
     RBTNode *right;  //右孩子
     RBTNode *parent; //父结点

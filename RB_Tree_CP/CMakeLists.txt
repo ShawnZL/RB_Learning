@@ -3,4 +3,4 @@ project(RB_Tree_CP)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(RB_Tree_CP main.cpp RB_Tree_Node.h RB_Tree.h)
+add_executable(RB_Tree_CP main.cpp RB_Tree_Node.h RB_Tree.h RB_Tree.cpp)
