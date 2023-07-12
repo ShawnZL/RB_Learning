@@ -118,7 +118,7 @@ BENCHMARK(BM_Insert)
         ->ThreadRange(1, 5)
         // ->Repetitions(30) // 确定重复率
         ->UseRealTime();
-BENCHMARK_MAIN(); // 使用就要注释掉主函数
+//BENCHMARK_MAIN(); // 使用就要注释掉主函数
 
 
 /*
