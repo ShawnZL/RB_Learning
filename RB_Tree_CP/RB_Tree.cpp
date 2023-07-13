@@ -322,22 +322,49 @@ void RBTree<Type>::Remove(RBTNode<Type> *z) {
     {
         x = z->left;
         Transplant(z, z->left);
-    }
+    } // 经过以上俩操作，z节点成功成为孤家寡人
     else //右左孩子和右孩子
     {
         y = Minimum(z->right); //y是z右子树的的最左子树
         ycolor = y->color;
         x = y->right;
         if (y->parent == z) //z的右子结点没有左节点或为Nil
-        {
+        {/*
+     *      z
+     *       \
+     *        y
+     *         \
+     *          x
+     */
             x->parent = y;
         }
         else //z的右子结点有左节点或为Nil
         {
+     /*
+     *      z
+     *       \
+     *        .
+     *       /  \
+     *      y    .
+     *       \
+              x
+     */
             Transplant(y, y->right);
+
             y->right = z->right;
             y->right->parent = y;
-        }
+     /*
+     *      y
+     *       \
+     *        .
+     *       /  \
+     *      x    .
+     *
+             z
+            /
+           zl
+     */
+        } // y已经抢占了z的右孩子，尚未替代z的位置
         Transplant(z, y);
         //改变指向
         y->left = z->left;
@@ -346,15 +373,17 @@ void RBTree<Type>::Remove(RBTNode<Type> *z) {
     }
     if (ycolor == BLACK)
     {
-        Remove_Fixup(x);
+        Remove_Fixup(x); // 从最下开始调整
     }
 }
 
 //红黑树删除调整
 template<class Type>
 void RBTree<Type>::Remove_Fixup(RBTNode<Type> *x) {
+    // 首先将最小节点y替代原来删除的z，相当于在这个节点上删除了y，y的右孩子x就代替成为新y
     // 此时x为删除后替代的原来节点。
-    while (x != root && x->color == BLACK) //当结点x不为根并且它的颜色不是黑色
+    // x = N w = S 对应wiki
+    while (x != root && x->color == BLACK) //当结点x不为根并且它的颜色是黑色
     {
         if (x == x->parent->left) //x在左子树
         {
@@ -366,24 +395,26 @@ void RBTree<Type>::Remove_Fixup(RBTNode<Type> *x) {
                 x->parent->color = RED;
                 LeftRotate(x->parent);
                 w = x->parent->right;
-            } // 转换为情形 4，5，6，p -> r -> x 转变为p -> x 相当于少了一个黑色节点，parent和w不平衡
-            if (w->left->color == BLACK && w->right->color == BLACK) //情况3
+            }
+            // 经过情况2，所有路径上黑色节点数目没有改变，但是x(N)相当于有了一个黑色兄弟和红色p
+            // 转换为情形 4，5，6，p -> r -> x 转变为p -> x 相当于少了一个黑色节点，新parent和新S(w)不平衡
+            if (w->left->color == BLACK && w->right->color == BLACK) //情况 3 和 4
             {
-                // 此时w少了一个黑色的节点，可以通过再次与parent平衡，转换为parent少一个黑色，继续调整
                 w->color = RED;
                 x = x->parent;
+                // 此时w少了一个黑色的节点，可以通过再次与parent平衡，转换为parent少一个黑色，继续调整
             }
             else
             {
-                if (w->right->color == BLACK) //情况5
+                if (w->right->color == BLACK) //情况5 转换为情况6
                 {
-                    // S是黑色，S的左儿子是红色，S的右儿子是黑色
+                    // S(w)是黑色，S(w)的左儿子是红色，S(w)的右儿子是黑色
                     w->color = RED;
                     w->left->color = BLACK;
                     RightRotate(w);
                     w = x->parent->right;
                 }
-                //情况6 情况4讨论
+                //情况6 讨论
                 w->color = w->parent->color;
                 w->parent->color = BLACK;
                 w->right->color = BLACK;
@@ -401,7 +432,7 @@ void RBTree<Type>::Remove_Fixup(RBTNode<Type> *x) {
                 RightRotate(x->parent);
                 w = x->parent->left;
             }
-            if (w->right->color == BLACK && w->right->color == BLACK) //情况3
+            if (w->right->color == BLACK && w->right->color == BLACK) //情况3 4
             {
                 w->color = RED;
                 x = x->parent;

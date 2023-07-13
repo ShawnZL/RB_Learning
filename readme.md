@@ -4,7 +4,9 @@
 
 `RB_Tree_CP` 在参考代码[1](https://blog.csdn.net/code_peak/article/details/120643910)，[2](https://github.com/Neo-ZK/RB_Tree)基础上实现，其中参考代码2中没有实现方法`Fix_Tree_Delete()` 也就是删除后的调整代码。红黑树删除后的调整是根据[wiki](https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91)中定义实现的，但是删除的场景4没有体现！！！
 
-代码中目前尚未理解`Transplant()`方法。
+代码中已经理解`Transplant()`方法，就是使用新节点替换旧节点，然后将新旧节点之间的孩子的交换操作放在后边判断情况。
+
+重新调整了删除调整`Remove_Fixup`代码，其中`x`为删除节点后替代删除节点`z`位置的孩子节点。删除代码是首先寻找到可以替代删除节点的`y`，使用`y`去代替`z`，交换`y`与`x`，之后利用`y`的孩子`x`去代替`z`。补充了一些代码注释，尤其是情况4和情况6之后的终止处理。
 
 # benchmark
 
